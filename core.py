@@ -41,7 +41,7 @@ class Presenter:
     Ich würde vorschlagen, ein Objekt pro Spiel zu erstellen. Sobald ein Fehler gemacht wird, ist der dann auch wieder fertig. Gleiches gilt für die andere Klasse
     """
 
-    def __init__(self, interval=.5, wait=.5) -> None:
+    def __init__(self, interval=.5, wait=1) -> None:
         """
         @interval: Wie lange soll gewartet werden, bis das nächste Feld aufleuchtet (in einer Reihe von Feldern)?
         @wait: Wie lange soll nach dem Ende des letzten richtig angeglickten Felds der letzten Reihe mit der nächsten gewartet werden?
@@ -53,6 +53,8 @@ class Presenter:
         self.series_start = time.perf_counter()
 
     def check(self, new_cell):
+        if time.perf_counter() - self.series_start <= self.interval * self.series_len():
+            return INVALID
         try:
             correct = self.series[self.clicked_cells] == new_cell
         except IndexError:
@@ -61,13 +63,13 @@ class Presenter:
         self.clicked_cells += 1
         if correct:
             if self.clicked_cells == len(self.series):
-                print("Completed")
+                # print("Completed")
                 return COMPLETED
             else:
-                print("Correct")
+                # print("Correct")
                 return CORRECT
         else:
-            print("Mistake")
+            # print("Mistake")
             return MISTAKE
         
     def new_series(self, wait=True):

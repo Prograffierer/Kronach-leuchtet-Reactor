@@ -5,7 +5,7 @@ import core
 # reactor = core.Reactor(presenter)
 
 class GameGUI:
-    def __init__(self, game: core.Game, fps=60, cell_size=50, pres=(100, 50), react=(100, 300)) -> None:
+    def __init__(self, game: core.Game, fps=60, cell_size=50, border=2, pres=(100, 50), react=(100, 300)) -> None:
         pg.init()
         pg.display.set_caption("Kronach leuchtet - Reactor")
         self.game = game
@@ -15,6 +15,7 @@ class GameGUI:
         self.dt = 0
         self.fps = fps
         self.cell_size = cell_size
+        self.border = border
         self.pres = pres
         self.react = react
         self.font = pg.font.Font("ARIBLK.ttf", 100)
@@ -34,8 +35,8 @@ class GameGUI:
         pres_colors, react_colors = self.game.colors()
         for i in range(3):
             for j in range(3):
-                pg.draw.rect(self.screen, pres_colors[i][j], pg.Rect(self.pres[0]+i*self.cell_size, self.pres[1]+j*self.cell_size, self.cell_size, self.cell_size))
-                pg.draw.rect(self.screen, react_colors[i][j], pg.Rect(self.react[0]+i*self.cell_size, self.react[1]+j*self.cell_size, self.cell_size, self.cell_size))
+                pg.draw.rect(self.screen, pres_colors[i][j], pg.Rect(self.pres[0]+i*self.cell_size, self.pres[1]+j*self.cell_size, self.cell_size-self.border, self.cell_size-self.border))
+                pg.draw.rect(self.screen, react_colors[i][j], pg.Rect(self.react[0]+i*self.cell_size, self.react[1]+j*self.cell_size, self.cell_size-self.border, self.cell_size-self.border))
         text = self.font.render(str(self.game.high_score), True, "black", "gray")
         textRect = text.get_rect()
         textRect.center = (400, 300)
