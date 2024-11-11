@@ -6,7 +6,7 @@ Wenn ihr das testen wollt, dann versucht mal folgendes:
 
 Als erstes müsstet ihr Python installieren, da könnt ihr euch [hier](https://www.python.org/downloads/windows/) links oben die Version herunterladen, die ihr braucht.
 
-Außerdem müsst ihr euch die ganzen Dateien von hier herunterladen. Dafür einfach auf "Code" und dann auf "Download ZIP" klicken.
+Außerdem müsst ihr euch die ganzen Dateien von hier herunterladen. Dafür einfach auf den grünen Button "Code" und dann auf "Download ZIP" klicken.
 Den ZIP-Ordner müsst ihr dann ganz normal extrahieren (in den Download-Ordner, Rechtsklick auf den Zip-Ordner, "Alle extrahieren", "Extrahieren").
 
 Wenn ihr da alles fertig installiert habt, geht ihr in den Ordner, den ihr runtergeladen habt. Der müsste "Kronach-leuchtet-Reactor-main" heißen und die Dateien .gitignore, core.py, README.md und simulation.py enthalten. Da öffnet ihr dann das Terminal wie in Info (Rechtsklick in den weißen Bereich -> in Terminal öffnen).
