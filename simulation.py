@@ -17,7 +17,7 @@ class GameGUI:
         self.cell_size = cell_size
         self.pres = pres
         self.react = react
-        self.font = pg.font.Font("digital-7.ttf", 100)
+        self.font = pg.font.Font("ARIBLK.ttf", 100)
         
     def event_handler(self):
         for event in pg.event.get():
@@ -38,7 +38,7 @@ class GameGUI:
                 pg.draw.rect(self.screen, react_colors[i][j], pg.Rect(self.react[0]+i*self.cell_size, self.react[1]+j*self.cell_size, self.cell_size, self.cell_size))
         text = self.font.render(str(self.game.high_score), True, "black", "gray")
         textRect = text.get_rect()
-        textRect.center = (300, 300)
+        textRect.center = (400, 300)
         self.screen.blit(text, textRect)
         pg.display.flip()
 
